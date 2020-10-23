@@ -1,7 +1,7 @@
 import os
 
 
-db_path = "sqlite:///" + os.path.join(basedir, 'db.sqlite')
+db_path = "sqlite:///db.sqlite"
 
 
 class Config:
