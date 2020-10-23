@@ -12,3 +12,9 @@ Energy Hack 3
 Создание базы данных по характеристикам электросетевых объектов.
 Реализация парсера (и интерфейса к нему) для разных excel файлов в базу данных. 
 Формирование отчета в Excel и Word формате.
+
+
+для запуска кода:
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
