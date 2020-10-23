@@ -17,3 +17,5 @@ def add():
     return render_template("add.html")
 
 @app.route("/download/")
+def download():
+    return render_template("download.html")

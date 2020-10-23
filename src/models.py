@@ -52,5 +52,5 @@ class transformer(db.Model):
     year_manufacture = db.Column(db.Integer) #год изготовления
     year_activate = db.Column(db.Integer) #год включения (например на холостом ходу, вне включения в сеть)
     technical_condition = db.Column(db.String(256)) #состояние сети 
-    transformer_type = b.Column(db.String(256)) #тип трансформатора
+    transformer_type = db.Column(db.String(256)) #тип трансформатора
 
