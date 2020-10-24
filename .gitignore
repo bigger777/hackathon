@@ -2,4 +2,4 @@ venv
 src/venv
 src/env
 src/__pycache__
-
+*.swp
