@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block container %}
+choose what u want to add<br>
+<a href="{{url_for('add_spec', obj='power_line')}}">Power Line</a><br>
+<a href="{{url_for('add_spec', obj='line_segment')}}">Line segment</a><br>
+<a href="{{url_for('add_spec', obj='substation')}}">Substation</a><br>
+<a href="{{url_for('add_spec', obj='transformer')}}">Transformer</a><br>
+{% endblock %}

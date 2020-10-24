@@ -27,6 +27,7 @@
                     <th scope="col">technical condition</th>
                     <th scope="col">control number</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,6 +40,7 @@
                     <td>{{ e.technical_condition }}</td>
                     <td>{{ e.control_number }}</td>
                     <td><a href="{{ url_for('edit', obj='power_line', index=e.id) }}" class="badge badge-primary">Edit</a></td>
+                    <td><a href="{{ url_for('delete', obj='power_line', index=e.id) }}" class="badge badge-danger">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -55,6 +57,7 @@
                     <th scope="col">wires_mark</th>
                     <th scope="col">year_of_commissioning</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -67,6 +70,7 @@
                     <td>{{ e.wires_mark }}</td>
                     <td>{{ e.year_of_commissioning }}</td>
                     <td><a href="{{ url_for('edit', obj='line_segment', index=e.id) }}" class="badge badge-primary">Edit</a></td>
+                    <td><a href="{{ url_for('delete', obj='line_segment', index=e.id) }}" class="badge badge-danger">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -81,7 +85,9 @@
                     <th scope="col">substation name</th>
                     <th scope="col">voltage class</th>
                     <th scope="col">year_of_commissioning</th>
+                    <th scope="col">substation_number</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -92,7 +98,9 @@
                     <td>{{ e.substation_name }}</td>
                     <td>{{ e.voltage_class }}</td>
                     <td>{{ e.year_of_commissioning }}</td>
+                    <td>{{ e.substation_number }}</td>
                    <td><a href="{{ url_for('edit', obj='substation', index=e.id) }}" class="badge badge-primary">Edit</a></td>
+                   <td><a href="{{ url_for('delete', obj='substation', index=e.id) }}" class="badge badge-danger">Delete</a></td>
                 </tr>
                 {% endfor %}
             </tbody>
@@ -110,10 +118,12 @@
                     <th scope="col">technical condition</th>
                     <th scope="col">transformer number</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
+
                 </tr>
             </thead>
             <tbody>
-                {% for e in power_lines %}
+                {% for e in transformer %}
                 <tr>
                     <th scope="row">{{ e.id }}</th>
                     <td>{{ e.nominal_power }}</td>
@@ -123,6 +133,8 @@
                     <td>{{ e.technical_condition }}</td>
                     <td>{{ e.transformer_number }}</td>
                    <td><a href="{{ url_for('edit', obj='transformer', index=e.id) }}" class="badge badge-primary">Edit</a></td>
+                   <td><a href="{{ url_for('delete', obj='transformer', index=e.id) }}" class="badge badge-danger">Delete</a></td>
+                   
                 </tr>
                 {% endfor %}
             </tbody>

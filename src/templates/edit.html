@@ -1,4 +1,146 @@
 {% extends 'base.html' %}
 {% block container %}
 EDIT
+<form method="POST">
+    {{ form.csrf_token }}
+    {% if obj == "power_line" %}
+
+    {{ form.start_segment_name.label(class="mb-1 mt-2") }}
+    {{ form.start_segment_name(class="form-control") }}
+    <ul>{% for e in form.start_segment_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.end_segment_name.label(class="mb-1 mt-2") }}
+    {{ form.end_segment_name(class="form-control") }}
+    <ul>{% for e in form.end_segment_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.year_of_commissioning.label(class="mb-1 mt-2") }}
+    {{ form.year_of_commissioning(class="form-control") }}
+    <ul>{% for e in form.year_of_commissioning.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.voltage_class.label(class="mb-1 mt-2") }}
+    {{ form.voltage_class(class="form-control") }}
+    <ul>{% for e in form.voltage_class.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.technical_condition.label(class="mb-1 mt-2") }}
+    {{ form.technical_condition(class="form-control") }}
+    <ul>{% for e in form.technical_condition.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.network_name.label(class="mb-1 mt-2") }}
+    {{ form.network_name(class="form-control") }}
+    <ul>{% for e in form.network_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {{ form.control_number.label(class="mb-1 mt-2") }}
+    {{ form.control_number(class="form-control") }}
+    <ul>{% for e in form.control_number.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+    {% elif obj == "line_segment" %}
+
+
+    {{ form.start_point.label(class="mb-1 mt-2") }}
+    {{ form.start_point(class="form-control") }}
+    <ul>{% for e in form.start_point.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.end_point.label(class="mb-1 mt-2") }}
+    {{ form.end_point(class="form-control") }}
+    <ul>{% for e in form.end_point.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.segment_length.label(class="mb-1 mt-2") }}
+    {{ form.segment_length(class="form-control") }}
+    <ul>{% for e in form.segment_length.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.lines_amount.label(class="mb-1 mt-2") }}
+    {{ form.lines_amount(class="form-control") }}
+    <ul>{% for e in form.lines_amount.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.wires_mark.label(class="mb-1 mt-2") }}
+    {{ form.wires_mark(class="form-control") }}
+    <ul>{% for e in form.wires_mark.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.year_of_commissioning.label(class="mb-1 mt-2") }}
+    {{ form.year_of_commissioning(class="form-control") }}
+    <ul>{% for e in form.year_of_commissioning.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.wires_type.label(class="mb-1 mt-2") }}
+    {{ form.wires_type(class="form-control") }}
+    <ul>{% for e in form.wires_type.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.network_name.label(class="mb-1 mt-2") }}
+    {{ form.network_name(class="form-control") }}
+    <ul>{% for e in form.network_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.control_number.label(class="mb-1 mt-2") }}
+    {{ form.control_number(class="form-control") }}
+    <ul>{% for e in form.control_number.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+    
+    {{ form.power_line_id.label(class="mb-1 mt-2") }}
+    {{ form.power_line_id(class="form-control") }}
+    <ul>{% for e in form.power_line_id.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+    {% elif obj == "substation" %}
+
+
+    {{ form.network_name.label(class="mb-1 mt-2") }}
+    {{ form.network_name(class="form-control") }}
+    <ul>{% for e in form.network_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.substation_name.label(class="mb-1 mt-2") }}
+    {{ form.substation_name(class="form-control") }}
+    <ul>{% for e in form.substation_name.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.voltage_class.label(class="mb-1 mt-2") }}
+    {{ form.voltage_class(class="form-control") }}
+    <ul>{% for e in form.voltage_class.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.year_of_commissioning.label(class="mb-1 mt-2") }}
+    {{ form.year_of_commissioning(class="form-control") }}
+    <ul>{% for e in form.year_of_commissioning.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+    {% elif obj == "transformer" %}
+
+
+    {{ form.nominal_power.label(class="mb-1 mt-2") }}
+    {{ form.nominal_power(class="form-control") }}
+    <ul>{% for e in form.nominal_power.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.year_manufacture.label(class="mb-1 mt-2") }}
+    {{ form.year_manufacture(class="form-control") }}
+    <ul>{% for e in form.year_manufacture.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.year_activate.label(class="mb-1 mt-2") }}
+    {{ form.year_activate(class="form-control") }}
+    <ul>{% for e in form.year_activate.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.technical_condition.label(class="mb-1 mt-2") }}
+    {{ form.technical_condition(class="form-control") }}
+    <ul>{% for e in form.technical_condition.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.transformer_type.label(class="mb-1 mt-2") }}
+    {{ form.transformer_type(class="form-control") }}
+    <ul>{% for e in form.transformer_type.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+
+
+    {{ form.transformer_number.label(class="mb-1 mt-2") }}
+    {{ form.transformer_number(class="form-control") }}
+    <ul>{% for e in form.transformer_number.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+    
+    {{ form.substation_id.label(class="mb-1 mt-2") }}
+    {{ form.substation_id(class="form-control") }}
+    <ul>{% for e in form.substation_id.errors %}<li><p class="alert-warning">{{e}}</p></li>{% endfor %}</ul>
+    {% endif %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
 {% endblock %}

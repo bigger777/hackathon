@@ -21,13 +21,14 @@ class Line_SegmentForm(FlaskForm):
     wires_type = StringField("Укажите техническое состояние ЛЭП", [validators.InputRequired("Необходимо указать техническое состояние ЛЭП")])
     network_name = StringField("Укажите наименование сети, к которой ЛЭП относится")
     control_number = StringField("Укажите диспетчерский номер сегмента ЛЭП", [validators.InputRequired("Необходимо указать диспетчерский номер сегмента ЛЭП")])
-
+    power_line_id = IntegerField("Укажите id записи ЛЭП", [validators.InputRequired("Необходимо указать id записи ЛЭП")])
 
 class SubstationForm(FlaskForm):
     network_name = StringField("Укажите наименование сети, к которой ЛЭП относится")
     substation_name = StringField("Укажите название подстанции", [validators.InputRequired("Необходимо указать название подстанции")])
     voltage_class = StringField("Укажите класс напряжения", [validators.InputRequired("Необходимо указать класс напряжения")])
     year_of_commissioning = IntegerField("Укажите год ввода подстанции в эксплуатацию", [validators.InputRequired("Необходимо указать год ввода подстанции в эксплуатацию")])
+    substation_number = StringField("Укажите диспетчерский номер подстанции", [validators.InputRequired("Необходимо указать диспетчерский номер подстанции")])
 
 
 class TransformerForm(FlaskForm):
@@ -37,5 +38,5 @@ class TransformerForm(FlaskForm):
     technical_condition = StringField("Укажите техническое состояние трансформатора", [validators.InputRequired("Необходимо указать техническое состояние трансформатора")])
     transformer_type = StringField("Укажите тип трансформатора", [validators.InputRequired("Необходимо указать тип трансформатора")])
     transformer_number = StringField("Укажите диспетчерский номер трансформатора", [validators.InputRequired("Необходимо указать диспетчерский номер трансформатора")])
-
+    substation_id = IntegerField("Укажите id записи подстанции", [validators.InputRequired("Необходимо указать id записи подстанции")])
     
