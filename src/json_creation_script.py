@@ -17,7 +17,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АСУ-300|АСО-300",
-                        "primary_line" : True
+                        "primary_line" : True,
+                        "control_number" : "A-1/2"
                         },
                     1 : {
                         "start_point" : "отп. на ПС 1",
@@ -26,7 +27,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АПС-150/24",
-                        "primary_line" : False
+                        "primary_line" : False,
+                        "control_number" : "A-1/2"
                         },
                     2 : {
                         "start_point" : "отп.оп. на ПС 1",
@@ -35,7 +37,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АСУ-300|AC-300/39",
-                        "primary_line" : True
+                        "primary_line" : True,
+                        "control_number" : "A-1/2"
                         },
                     3 : {
                         "start_point" : "отп. на ПС 2",
@@ -44,7 +47,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АС-150",
-                        "primary_line" : False
+                        "primary_line" : False,
+                        "control_number" : "A-1/2"
                         },
                     4 : {
                         "start_point" : "отп.оп. на ПС 2",
@@ -53,7 +57,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АС-300/39",
-                        "primary_line" : True
+                        "primary_line" : True,
+                        "control_number" : "A-1/2"
                         },
                     5 : {
                         "start_point" : "отп.на ПС 3",
@@ -62,7 +67,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АС-185",
-                        "primary_line" : False
+                        "primary_line" : False,
+                        "control_number" : "A-1/2"
                         },
                     6 : {
                         "start_point" : "отп.оп. на ПС 3",
@@ -71,7 +77,8 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АС-300/39",
-                        "primary_line" : True
+                        "primary_line" : True,
+                        "control_number" : "A-1/2"
                         }
                 }
             }, 
