@@ -10,7 +10,7 @@ class Power_line(db.Model):
     voltage_class = db.Column(db.String(256)) #класс напряжения
     technical_condition = db.Column(db.String(256)) #состояние сети (хорошо, удовлетворитель, в зоне риска)
     network_name = db.Column(db.String(256)) #наименование сети
-    control_number = db.Column(db.String(256))
+    control_number = db.Column(db.String(256)) #диспетчерский номер ЛЭП
     lines_segments = db.relationship("Line_Segment") #ссылка на сегменты сети
 
 
@@ -27,6 +27,7 @@ class Line_Segment(db.Model):
     primary_line = db.Column(db.Boolean, nullable=False) #обозначение, является ли сегмент основной линией лэп или отпайкой (true если лэп, false если отпайка)
     power_line = db.relationship("Power_line") #ссылка на ЛЭП в которой этот сегмент находится
     power_line_id = db.Column(db.Integer, db.ForeignKey("Power_lines.id")) #связь с ключом хозяина
+    control_number = db.Column(db.String(256)) #диспетчерский номер сегмента ЛЭП
 
 
 class Substation(db.Model):
@@ -36,7 +37,8 @@ class Substation(db.Model):
     substation_name = db.Column(db.String(256)) #название подстанции
     voltage_class = db.Column(db.String(256)) #класс напряжения
     year_of_commissioning = db.Column(db.Integer) #год ввода в эксплуатацию
-    transformers = db.relationship("Transformer")
+    transformers = db.relationship("Transformer") #служебное поле отображающие связь с таблицей трансформаторов
+    substation_number = db.Column(db.String(256)) #диспетчерский номер подстанции
 
 
 class Transformer(db.Model):

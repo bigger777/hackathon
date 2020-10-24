@@ -37,6 +37,8 @@ for index, value in data.items():
                         ls.year_of_commissioning = value
                     if key == "wires_mark":
                         ls.wires_mark = value
+                    if key == "control_number":
+                        ls.control_number = value
                     if key == "primary_line":
                         ls.primary_line = value
                     ls.power_line_id = index

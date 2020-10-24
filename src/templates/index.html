@@ -1,4 +1,132 @@
 {% extends 'base.html' %}
 {% block container %}
 <p>This is an example paragraph. Anything in the <strong>body</strong> tag will appear on the page, just like this <strong>p</strong> tag and its contents.</p>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#power_line">{{goals_names["power_line"]}}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#line_segment">{{goals_names["line_segment"]}}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#substation">{{goals_names["substation"]}}</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#transformer">{{goals_names["transformer"]}}</a>
+    </li>
+</ul>
+<div class="tab-content">
+    <div class="tab-pane active" id="power_line">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">year</th>
+                    <th scope="col">voltage</th>
+                    <th scope="col">technical condition</th>
+                    <th scope="col">control number</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in power_lines %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.start_segment_name + " - "+ e.end_segment_name }}</td>
+                    <td>{{ e.year_of_commissioning }}</td>
+                    <td>{{ e.voltage_class }}</td>
+                    <td>{{ e.technical_condition }}</td>
+                    <td>{{ e.control_number }}</td>
+                    <td><a href="{{ url_for('edit', obj='power_line', id=e.id) }}" class="badge badge-primary">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="line_segment">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">name</th>
+                    <th scope="col">segment length</th>
+                    <th scope="col">lines amount</th>
+                    <th scope="col">wires_mark</th>
+                    <th scope="col">year_of_commissioning</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in lines_segments %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.start_point + " - " + e.end_point }}</td>
+                    <td>{{ e.segment_length }}</td>
+                    <td>{{ e.lines_amount }}</td>
+                    <td>{{ e.wires_mark }}</td>
+                    <td>{{ e.year_of_commissioning }}</td>
+                    <td><a href="{{ url_for('edit', obj='line_segment', id=e.id) }}" class="badge badge-primary">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="substation">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">network name</th>
+                    <th scope="col">substation name</th>
+                    <th scope="col">voltage class</th>
+                    <th scope="col">year_of_commissioning</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in substations %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.network_name }}</td>
+                    <td>{{ e.substation_name }}</td>
+                    <td>{{ e.voltage_class }}</td>
+                    <td>{{ e.year_of_commissioning }}</td>
+                   <td><a href="{{ url_for('edit', obj='substation', id=e.id) }}" class="badge badge-primary">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane" id="transformer">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">nominal power</th>
+                    <th scope="col">year of manufacture</th>
+                    <th scope="col">year of activate</th>
+                    <th scope="col">transformer type</th>
+                    <th scope="col">technical condition</th>
+                    <th scope="col">transformer number</th>
+                    <th scope="col">Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for e in power_lines %}
+                <tr>
+                    <th scope="row">{{ e.id }}</th>
+                    <td>{{ e.nominal_power }}</td>
+                    <td>{{ e.year_manufacture }}</td>
+                    <td>{{ e.year_activate }}</td>
+                    <td>{{ e.transformer_type }}</td>
+                    <td>{{ e.technical_condition }}</td>
+                    <td>{{ e.transformer_number }}</td>
+                   <td><a href="{{ url_for('edit', obj='transformer', id=e.id) }}" class="badge badge-primary">Edit</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
 {% endblock %}
