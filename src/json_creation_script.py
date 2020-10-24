@@ -92,7 +92,7 @@ data = {
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АСУ-300|АСУ-300/39|АС0-300",
                         "primary_line" : True
-                    }
+                    }  
                 }
             },
         3 : {
