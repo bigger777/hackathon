@@ -1,4 +1,5 @@
-from models import *
+from app import db
+from models import Power_line, Line_Segment, Substation, Transformer
 import json
 
 with open("data_file.json", 'r') as read_file:
