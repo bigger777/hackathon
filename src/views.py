@@ -6,8 +6,8 @@ from models import *
 
 names_goals = {"Таблица ЛЭП" : "power_line", "Таблица сегментов сети" : "line_segment", "Таблица подстанций" : "substation", "Таблица трансформаторов" : "transformer"}
 goals_names = {"power_line":"Таблица ЛЭП","line_segment":"Таблица сегментов сети","substation":"Таблица подстанций","transformer":"Таблица трансформаторов"}
-goals_models = {"power_line":"Power_line","line_segment":"Line_Segment","substation":"Substation","transformer":"Transformer"}
-goals_forms = {"power_line":"Power_lineForm","line_segment":"Line_SegmentForm","substation":"SubstationForm","transformer":"TransformerForm"}
+goals_models = {"power_line":Power_line,"line_segment":Line_Segment,"substation":Substation,"transformer":Transformer}
+goals_forms = {"power_line":Power_lineForm,"line_segment":Line_SegmentForm,"substation":SubstationForm,"transformer":TransformerForm}
 
 @app.route("/")
 def index():
@@ -17,11 +17,11 @@ def index():
     transformers = db.session.query(Transformer).all()
     return render_template("index.html", goals_names=goals_names, power_lines=power_lines, lines_segments=lines_segments, substations=substations, transformers=transformers)
 
-@app.route("/edit/<obj>/<id>/")
-def edit(obj, id):
+@app.route("/edit/<obj>/<index>/")
+def edit(obj, index):
     if obj not in goals_names.keys():
         abort(404)
-    obj = db.session.query(obj).get_or_404(id)
+    obj = db.session.query(goals_models[obj]).get_or_404(index)
 
 
     return render_template("edit.html")
@@ -32,17 +32,10 @@ def add():
 
 @app.route("/add/<obj>/")
 def add_spec(obj):
-    if obj == "power_line":
-        form = Power_lineForm
-    elif obj == "line_segment":
-        form = Line_SegmentForm
-    elif obj == "substation":
-        form = SubstationForm
-    elif obj == "transformer":
-        form = TransformerForm
+    form = (goals_forms[obj])()
     for e in form:
         print(e)
-    return render_template("add_spec.html", form=form)
+    return render_template("add_spec.html", form=form, obj=obj)
 
 @app.route("/download/")
 def download():
