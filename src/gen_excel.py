@@ -211,8 +211,12 @@ def add_stat(arr, v, y):
         return
     arr[0] += v
 
-    
-def fill_out_lep_xml():
+def gen_doc_lep():
+    return
+
+
+
+def fill_out_lep_xml(path_name):
     kl = [0, 0, 0]
     vl = [0, 0, 0]
     sheet, book = gen_headers()
@@ -288,8 +292,9 @@ def fill_out_lep_xml():
     # отрисовка графика
     fill_elem(sheet, 'O3', year)
     gen_graph(book, sheet, kl, vl)
-    book.save("out_lep.xlsx")
-
+    book.save(path_name)
+    
+    gen_doc_lep()
     # read data from db
 
 
