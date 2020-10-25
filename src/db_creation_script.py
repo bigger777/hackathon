@@ -42,6 +42,8 @@ for index, value in data.items():
                         ls.control_number = value
                     if key == "primary_line":
                         ls.primary_line = value
+                    if key == "wires_type":
+                        ls.wires_type = value
                     ls.power_line_id = index
                     db.session.add(ls)
 
