@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, abort, request
+from flask import render_template, redirect, url_for, abort, request, send_file, send_from_directory
 from app import app
 from forms import *
 from models import *
@@ -16,6 +16,14 @@ def index():
     substations = db.session.query(Substation).all()
     transformers = db.session.query(Transformer).all()
     return render_template("index.html", goals_names=goals_names, power_lines=power_lines, lines_segments=lines_segments, substations=substations, transformers=transformers)
+
+@app.route("/download/")
+def download():
+    return render_template('download.html')
+
+@app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
+def gen_and_download(filename):
+        return send_from_directory(directory='./', filename=filename)
 
 @app.route("/edit/<obj>/<index>/", methods=['GET', 'POST'])
 def edit(obj, index):
@@ -123,7 +131,3 @@ def add_spec(obj):
         db.session.commit()
         return redirect(url_for('index'))
     return render_template("add_spec.html", form=form, obj=obj)
-
-@app.route("/download/")
-def download():
-    return render_template("download.html")

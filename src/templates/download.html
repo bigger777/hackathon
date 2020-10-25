@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
 {% block container %}
 DOWNLOAD
+Do u like to generate from existing data? <br>
+<a href="{{url_for("gen_and_download", filename='db.sqlite')}}" class>press me</a>
 {% endblock %}
