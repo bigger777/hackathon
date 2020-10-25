@@ -132,6 +132,7 @@ def fill_pl(sheet, pl, idx):
     fill_elem(sheet, 'D{}'.format(idx), pl.voltage_class, 100, 100)
     fill_elem(sheet, 'E{}'.format(idx), pl.year_of_commissioning, 100, 100)
     fill_elem(sheet, 'F{}'.format(idx), pl.lines_segments[0].lines_amount)
+    fill_elem(sheet, 'M{}'.format(idx), year - pl.year_of_commissioning)
 
 def fill_ls(sheet, ls, idx):
     fill_elem(sheet, 'B{}'.format(idx), ls.control_number, 100, 100)
@@ -282,6 +283,7 @@ def fill_out_lep_xml(path_name):
         # сливаем ячейки, если необходимо
         sheet.merge_cells("A{}:A{}".format(start_idx_pl, idx_pl))
         sheet.merge_cells("E{}:E{}".format(start_idx_pl, idx_pl))
+        sheet.merge_cells("M{}:M{}".format(start_idx_pl, idx_pl))
         # подсчет длины всего провода
         fill_elem(sheet, 'G{}'.format(all_idx), all_len)
         fill_elem(sheet, 'H{}'.format(all_idx), all_len * 2)
@@ -301,7 +303,7 @@ def fill_out_lep_xml(path_name):
 def fill_out_ps_xml():
     return
 
-
+#fill_out_lep_xml("./out_lep.xlsx")
 #fil_out_ps_xml()
 #test_graph()
 #parse_input("input.xlsx")
