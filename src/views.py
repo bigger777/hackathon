@@ -2,7 +2,7 @@ from flask import render_template, redirect, url_for, abort, request, send_file,
 from app import app
 from forms import *
 from models import *
-
+import os
 
 names_goals = {"Таблица ЛЭП" : "power_line", "Таблица сегментов сети" : "line_segment", "Таблица подстанций" : "substation", "Таблица трансформаторов" : "transformer"}
 goals_names = {"power_line":"Таблица ЛЭП","line_segment":"Таблица сегментов сети","substation":"Таблица подстанций","transformer":"Таблица трансформаторов"}
@@ -23,7 +23,10 @@ def download():
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def gen_and_download(filename):
-        return send_from_directory(directory='./', filename=filename)
+    if filename not in os.listdir('./'):
+        with open(filename, 'w') as f:
+            f.write("hello. It's me, BANO4KA <3")
+    return send_from_directory(directory='./', filename=filename)
 
 @app.route("/edit/<obj>/<index>/", methods=['GET', 'POST'])
 def edit(obj, index):
