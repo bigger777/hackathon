@@ -102,7 +102,6 @@ def gen_headers():
     
     add_text(sheet)
     
-    book.save("out_lep.xlsx")
     return sheet, book
 
 def parse_input(path):
@@ -303,7 +302,6 @@ def fill_out_ps_xml():
     return
 
 
-fill_out_lep_xml()
 #fil_out_ps_xml()
 #test_graph()
 #parse_input("input.xlsx")

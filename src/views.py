@@ -3,6 +3,8 @@ from app import app
 from forms import *
 from models import *
 import os
+from gen_excel import fill_out_lep_xml
+import datetime
 
 names_goals = {"Таблица ЛЭП" : "power_line", "Таблица сегментов сети" : "line_segment", "Таблица подстанций" : "substation", "Таблица трансформаторов" : "transformer"}
 goals_names = {"power_line":"Таблица ЛЭП","line_segment":"Таблица сегментов сети","substation":"Таблица подстанций","transformer":"Таблица трансформаторов"}
@@ -23,10 +25,10 @@ def download():
 
 @app.route('/uploads/<path:filename>', methods=['GET', 'POST'])
 def gen_and_download(filename):
-    if filename not in os.listdir('./'):
-        with open(filename, 'w') as f:
-            f.write("hello. It's me, BANO4KA <3")
-    return send_from_directory(directory='./', filename=filename)
+    filename2 =filename+str(datetime.datetime.now())+".xlsx"
+    filename3 = './static/' + filename2
+    fill_out_lep_xml(filename3)
+    return send_file(filename3)
 
 @app.route("/edit/<obj>/<index>/", methods=['GET', 'POST'])
 def edit(obj, index):
