@@ -17,6 +17,7 @@ data = {
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АСУ-300|АСО-300",
+                        "wires_type" : "kl",
                         "primary_line" : True,
                         "control_number" : "A-1/2"
                         },
@@ -26,6 +27,7 @@ data = {
                         "segment_length" : 1.398,
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
+                        "wires_type" : "kl",
                         "wires_mark" : "АПС-150/24",
                         "primary_line" : False,
                         "control_number" : "A-1/2"
@@ -36,6 +38,7 @@ data = {
                         "segment_length" : 3.5607,
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
+                        "wires_type" : "vl",
                         "wires_mark" : "АСУ-300|AC-300/39",
                         "primary_line" : True,
                         "control_number" : "A-1/2"
@@ -46,6 +49,7 @@ data = {
                         "segment_length" : 1.2453,
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
+                        "wires_type" : "kl",
                         "wires_mark" : "АС-150",
                         "primary_line" : False,
                         "control_number" : "A-1/2"
@@ -56,6 +60,7 @@ data = {
                         "segment_length" : 2.243,
                         "lines_amount" : 2,
                         "year_of_commissioning" : 1957,
+                        "wires_type" : "kl",
                         "wires_mark" : "АС-300/39",
                         "primary_line" : True,
                         "control_number" : "A-1/2"
@@ -65,6 +70,7 @@ data = {
                         "end_point" : "",
                         "segment_length" : 0.444,
                         "lines_amount" : 2,
+                        "wires_type" : "vl",
                         "year_of_commissioning" : 1957,
                         "wires_mark" : "АС-185",
                         "primary_line" : False,
@@ -75,7 +81,19 @@ data = {
                         "end_point" : "Фабричная",
                         "segment_length" : 0.8461,
                         "lines_amount" : 2,
+                        "wires_type" : "vl",
                         "year_of_commissioning" : 1957,
+                        "wires_mark" : "АС-300/39",
+                        "primary_line" : True,
+                        "control_number" : "A-1/2"
+                        },
+                    7 : {
+                        "start_point" : "отп.оп. на ПС 3",
+                        "end_point" : "Фабричная",
+                        "segment_length" : 0.8461,
+                        "lines_amount" : 2,
+                        "year_of_commissioning" : 1957,
+                        "wires_type" : "kl",
                         "wires_mark" : "АС-300/39",
                         "primary_line" : True,
                         "control_number" : "A-1/2"
@@ -85,21 +103,43 @@ data = {
         2 : {
             "start_segment_name" : "ПС Фабричная",
             "end_segment_name" : "ГРЭС-03",
-            "year_of_commissioning" : 1957,
+            "year_of_commissioning" : 2014,
             "voltage_class" : 110, 
             "technical_condition" : "годна",
             "network_name" : "", 
             "control_number" : "А-3/4",
             "lines_segments" : {
-                0 : {
+                    0 : {
                         "start_point" : "ПС Фабричная",
                         "end_point" : "ГРЭС-03",
                         "segment_length" : 5.05523,
                         "lines_amount" : 2,
-                        "year_of_commissioning" : 1957,
+                        "year_of_commissioning" : 2014,
+                        "wires_type" : "vl",
                         "wires_mark" : "АСУ-300|АСУ-300/39|АС0-300",
                         "primary_line" : True
-                    }  
+                        },
+                    1 : {
+                        "start_point" : "ПС Фабричная",
+                        "end_point" : "ГРЭС-03",
+                        "segment_length" : 5.05523,
+                        "lines_amount" : 2,
+                        "wires_type" : "kl",
+                        "year_of_commissioning" : 2014,
+                        "wires_mark" : "АСУ-300|АСУ-300/39|АС0-300",
+                        "primary_line" : True
+                        },
+                    2 : {
+
+                        "start_point" : "ПС Фабричная",
+                        "end_point" : "ГРЭС-03",
+                        "segment_length" : 5.05523,
+                        "lines_amount" : 2,
+                        "wires_type" : "kl",
+                        "year_of_commissioning" : 2014,
+                        "wires_mark" : "АСУ-300|АСУ-300/39|АС0-300",
+                        "primary_line" : True
+                    }
                 }
             },
         3 : {
